@@ -7,33 +7,8 @@ import Footer from '@/components/Footer';
 
 export default function HomePage() {
   const [games, setGames] = useState([]);
-  const [animatedStats, setAnimatedStats] = useState({ players: 0, games: 0, communities: 0 });
-
   useEffect(() => {
     setGames(getGameCategories());
-
-    // Animate stats counting up
-    const targets = { players: 500, games: 10, communities: 50 };
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      setAnimatedStats({
-        players: Math.round(targets.players * eased),
-        games: Math.round(targets.games * eased),
-        communities: Math.round(targets.communities * eased),
-      });
-      if (currentStep >= steps) {
-        clearInterval(timer);
-      }
-    }, interval);
-
-    return () => clearInterval(timer);
   }, []);
 
   const features = [
@@ -98,29 +73,7 @@ export default function HomePage() {
     },
   ];
 
-  const testimonials = [
-    {
-      text: '"I moved to a new city and had no one to play badminton with. GamePartner connected me with 5 amazing players in my area within a week!"',
-      name: 'Priya Patel',
-      role: 'Badminton Enthusiast, Ghaziabad',
-      avatar: 'PP',
-      gradient: 'player-avatar-green',
-    },
-    {
-      text: '"We started a weekend cricket group through GamePartner. What began as 4 strangers is now a 22-member team that plays every Sunday!"',
-      name: 'Vikram Singh',
-      role: 'Cricket Player, Pune',
-      avatar: 'VS',
-      gradient: 'player-avatar-cool',
-    },
-    {
-      text: '"As a chess lover, finding equally skilled opponents was tough. GamePartner\'s skill matching feature is a game-changer. Literally!"',
-      name: 'Sneha Reddy',
-      role: 'Chess Champion, Bangalore',
-      avatar: 'SR',
-      gradient: 'player-avatar-warm',
-    },
-  ];
+
 
   return (
     <main>
@@ -152,20 +105,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="hero-stats" id="hero-stats">
-            <div className="hero-stat">
-              <div className="hero-stat-value" id="stat-players">{animatedStats.players}+</div>
-              <div className="hero-stat-label">Active Players</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-value" id="stat-games">{animatedStats.games}+</div>
-              <div className="hero-stat-label">Games Available</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-value" id="stat-communities">{animatedStats.communities}+</div>
-              <div className="hero-stat-label">Communities</div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -271,44 +211,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* =============== TESTIMONIALS SECTION =============== */}
-      <section className="section" id="testimonials-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge">💬 What Players Say</span>
-            <h2 className="section-title" id="testimonials-title">
-              Loved by <span className="text-gradient">Players</span>
-            </h2>
-            <p className="section-description">
-              Hear from our community members who found their perfect game partners.
-            </p>
-          </div>
-
-          <div className="testimonials-grid" id="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div
-                className="testimonial-card card-glow"
-                key={testimonial.name}
-                id={`testimonial-card-${index}`}
-                style={{
-                  animation: `fadeInUp 0.7s ease-out ${0.15 * index}s both`,
-                }}
-              >
-                <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-author">
-                  <div className={`player-avatar ${testimonial.gradient}`}>
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <div className="testimonial-author-name">{testimonial.name}</div>
-                    <div className="testimonial-author-role">{testimonial.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* =============== CTA SECTION =============== */}
       <section className="cta-section" id="cta-section">
