@@ -37,14 +37,21 @@ GamePartner is a community-based digital platform designed to help individuals d
 - **User Account**: `aarav@example.com` / `password123`
 - **Admin Account**: `admin@gamepartner.com` / `admin123`
 
-## Deployment
+## Deep Dive into Key Features
 
-This project is configured for static export (`output: 'export'` in `next.config.mjs`) which makes it incredibly easy to deploy to Vercel, Netlify, or GitHub Pages.
+### 📍 Smart Matchmaking & Location Search
+The platform makes finding game partners effortless. You can search for players within your specific neighborhood or society. The system allows you to filter matches based on:
+- **Game Preference**: Whether you want to play Chess, Cricket, or Table Tennis.
+- **Skill Level**: Choose to play with Beginners, Intermediate, or Advanced players.
+- **Availability**: Match with people whose schedule (e.g. Weekends, Evenings) aligns with yours.
 
-### Vercel Deployment
+### 📩 Play Request System
+Instead of randomly sharing contact numbers, GamePartner uses an integrated Play Request system. 
+- You can browse player profiles and send a tailored match request.
+- The request includes the chosen game, a custom message, preferred date/time, and the playing location.
+- The recipient can securely accept or decline the match request right from their dashboard.
 
-1. Push your code to a GitHub repository.
-2. Import the repository in Vercel.
-3. Vercel will automatically detect Next.js.
-4. Set the Framework Preset to "Next.js".
-5. Click Deploy!
+### 👥 Community Groups
+If you want to play in a group instead of 1-on-1, you can join or create Community Groups.
+- Discover local groups like "Pune Weekend Cricketers" or "Noida Chess Club".
+- Join communities to see how many members are participating and engage with fellow enthusiasts.
